@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 'use strict';
 
 const USERS_URL = "";
@@ -49,7 +49,9 @@ function Table() {
     // }
 }
 
-const e = React.createElement;
+//const e = React.createElement;
 
-const domContainer = document.querySelector('#content');
-ReactDOM.render(e(Table), domContainer);
+//const domContainer = document.querySelector('#content');
+//ReactDOM.render(e(Table), domContainer);
+
+export default Table;
