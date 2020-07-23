@@ -1,0 +1,26 @@
+html {
+    /* text-align: center; */
+    box-sizing: border-box;
+}
+
+/* table {
+    position: relative;
+    text-align: center;
+} */
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.table {
+    position: relative;
+    /* margin-left: 5rem; */
+    /* text-align: center; */
+}
+
+.table > * {
+    text-align: center;
+}
+
