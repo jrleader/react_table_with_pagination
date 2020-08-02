@@ -29,6 +29,26 @@
             "id": 6,
             "fname": "Marvin",
             "lname": "Zhang"
+        },
+        {
+            "id": 7,
+            "fname": "Bob",
+            "lname": "Dylan"
+        },
+        {
+            "id": 8,
+            "fname": "Paul",
+            "lname": "Ramstead"
+        },
+        {
+            "id": 9,
+            "fname": "John",
+            "lname": "Lennon"
+        },
+        {
+            "id": 10,
+            "fname": "Steven",
+            "lname": "Lee"
         }
     ]
 }
