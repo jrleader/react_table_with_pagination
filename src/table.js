@@ -85,8 +85,8 @@ export default class Table extends React.Component {
                 currentPage: nextPage,
                 currMembers: nextMembers
             },
-                //console.log("Current members:" + JSON.stringify(this.state.currMembers))
-                () => console.log("Current members:" + JSON.stringify(this.state.currMembers))
+                //console.log("Current members:" + JSON.stringify(this.state.currMembers))      // If not using arrow function here, currMembers will be the old version
+                () => console.log("Current members:" + JSON.stringify(this.state.currMembers))  // Using arrow function, currMembers will be the updated version, why?
             )
             console.log("Next button clicked!")
         }
@@ -131,10 +131,24 @@ export default class Table extends React.Component {
                     <button className="first-page-btn" onClick={() => this.handleFButtonClick()} disabled={
                         this.state.currentPage === this.state.minPage ? true : false
                     }>first</button>
-                    <button className="first-page-btn" onClick={() => this.handlePButtonClick()} disabled={
+                    <button className="prev-page-btn" onClick={() => this.handlePButtonClick()} disabled={
                         this.state.currentPage === this.state.minPage ? true : false
                     }>previous</button>
-                    <button className="first-page-btn" onClick={() => this.handleNButtonClick()} disabled={
+                    {/* <div className="pageSelections">
+                        {
+                            // this.state.maxPage.map(
+                            //     (page) => {
+                            //         <a key={page}>{page}</a>
+                            //     }
+                            // )
+                            range(1, this.state.maxPage).map(
+                                (page) => {
+                                    <a key={page}>{page}</a>
+                                }
+                            )
+                        }
+                    </div> */}
+                    <button className="next-page-btn" onClick={() => this.handleNButtonClick()} disabled={
                         this.state.currentPage === this.state.maxPage ? true : false
                     }>next</button>
                     <button className="last-page-btn" onClick={() => this.handleLuttionClick()} disabled={
@@ -144,6 +158,23 @@ export default class Table extends React.Component {
             </div>
         );
     }
+}
+
+// Helper functions
+// Generate a range of numbers, ref: https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
+function range(start, end) {
+    var total = [];
+
+    if (!end) {
+        end = start;
+        start = 0;
+    }
+
+    for (var i = start; i < end; i += 1) {
+        total.push(i);
+    }
+
+    return total;
 }
 
 //const e = React.createElement;

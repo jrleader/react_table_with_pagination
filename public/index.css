@@ -24,3 +24,11 @@ html {
     text-align: center;
 }
 
+a {
+    display: inline;
+}
+
+.pageSelections {
+    display: inline-block;
+}
+
