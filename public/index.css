@@ -18,6 +18,7 @@ html {
     position: relative;
     /* margin-left: 5rem; */
     /* text-align: center; */
+    border: 1px solid indigo;
 }
 
 .table > * {
@@ -26,9 +27,14 @@ html {
 
 a {
     display: inline;
+    margin-right: 1em;
 }
 
 .pageSelections {
     display: inline-block;
+}
+
+.pagination {
+    text-align: center;
 }
 

@@ -18,7 +18,7 @@ class App extends Component {
         return (
             // <div class="box" style={divStyle}>
             <div class="box">
-                <Table data-url={USERS_URL} />
+                <Table data-url={USERS_URL} itemsPerPage={5} />
             </div>
         );
     }
