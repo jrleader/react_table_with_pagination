@@ -10,6 +10,7 @@ html {
 
 .box {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center
 }
@@ -17,12 +18,17 @@ html {
 .table {
     position: relative;
     /* margin-left: 5rem; */
-    /* text-align: center; */
-    border: 1px solid indigo;
+    text-align: center;
+    /* border: 3px solid indigo; */
 }
 
-.table > * {
-    text-align: center;
+table {
+    position: relative;
+    /* align-items: center */
+    /* For horizontally centering the element */
+    margin: auto;
+    border: 3px solid indigo;
+    
 }
 
 a {
@@ -35,6 +41,9 @@ a {
 }
 
 .pagination {
+    display: block;
+    position: relative;
     text-align: center;
+    margin-top: 1em;
 }
 

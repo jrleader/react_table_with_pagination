@@ -138,24 +138,26 @@ export default class Table extends React.Component {
         console.log(pages)
         return (
             <div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>{this.state.currMembers
-                        .map((user) =>
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>{user.fname}</td>
-                                <td>{user.lname}</td>
+                <section className="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>{this.state.currMembers
+                            .map((user) =>
+                                <tr key={user.id}>
+                                    <td>{user.id}</td>
+                                    <td>{user.fname}</td>
+                                    <td>{user.lname}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </section>
                 <section className="pagination">
                     <button className="first-page-btn" onClick={() => this.handleFButtonClick()} disabled={
                         this.state.currentPage === this.state.minPage ? true : false
