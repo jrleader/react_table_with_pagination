@@ -9,3 +9,9 @@ The current issue: Webpack can start, but not serving anything from the public d
 - Implement pagination with mocked data
 
 - Implement backend data api
+
+- Add animations for page transition
+
+- Add header and footer
+
+- Add styling to the table with Bootstrap
