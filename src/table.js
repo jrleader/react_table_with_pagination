@@ -142,23 +142,37 @@ export default class Table extends React.Component {
         console.log(pages)
         return (
             <div>
-                <section className="table">
+                <section className="memberInfo">
                     <table>
                         <thead>
-                            <tr>
+                            <tr>{/* {
+                                    this.state.currMembers
+                                    .map((user) => {
+                                        for(let prop in user) {
+                                            <th>{prop}</th>
+                                        }
+                                    }
+                                        // for(let prop in user) {
+                                            // <th>{prop}</th>
+                                        // }
+                                    )
+                                } */}
                                 <th>ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                             </tr>
                         </thead>
-                        <tbody>{this.state.currMembers
-                            .map((user) =>
+                        <tbody>
+                        {   
+                            this.state.currMembers.map(
+                                (user) => 
                                     <tr key={user.id}>
                                         <td>{user.id}</td>
                                         <td>{user.fname}</td>
                                         <td>{user.lname}</td>
                                     </tr>
-                            )}
+                            )
+                        }
                         </tbody>
                     </table>
                 </section>
