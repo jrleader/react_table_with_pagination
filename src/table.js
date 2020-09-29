@@ -177,7 +177,17 @@ export default class Table extends React.Component {
                     </table>
                 </section>
                 <section className="pagination">
-                    <button className="first-page-btn" onClick={() => this.handleFButtonClick()} disabled={
+                    {/* <button className="first-page-btn" onClick={() => this.handleFButtonClick()}  */}
+                    <button className="first-page-btn" onClick={this.handleFButtonClick.bind(this)} 
+                        onMouseOverCapture={ () => { 
+                            console.log("Mouse over the first page button on capture")
+                            console.dir(event,this).bind(this)
+                        }} 
+                        onMouseOver={() => {
+                            console.log("Mouse over the first page button on bubbling")
+                            console.dir(event,this).bind(this)
+                        }} 
+                        disabled={
                         this.state.currentPage === this.state.minPage ? true : false
                     }>first</button>
                     <button className="prev-page-btn" onClick={() => this.handlePButtonClick()} disabled={
