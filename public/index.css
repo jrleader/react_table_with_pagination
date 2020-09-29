@@ -15,21 +15,31 @@ html {
     justify-content: center
 }
 
-.table {
-    position: relative;
+/* .table { */
+    /* position: relative; */
     /* margin-left: 5rem; */
-    text-align: center;
+    /* text-align: center; */
     /* border: 3px solid indigo; */
-}
+/* } */
 
-table {
+.memberInfo > table {
     position: relative;
     /* align-items: center */
     /* For horizontally centering the element */
     margin: auto;
-    border: 3px solid indigo;
+    border: 3px solid rgb(75, 0, 130);
     
 }
+
+table th,td {
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid rgb(75, 0, 130);
+}
+
+/* table tr {
+    
+} */
 
 a {
     display: inline;
@@ -47,3 +57,6 @@ a {
     margin-top: 1em;
 }
 
+img #logo {
+    margin: 2rem !important;
+}
