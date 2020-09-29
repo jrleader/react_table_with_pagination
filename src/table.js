@@ -129,8 +129,12 @@ export default class Table extends React.Component {
         const pages = this.state.pages.map(
             page => {
                 return (
-                    <a key={page} href="javascript:void(0)" onClick={
-                        () => this.handlePgButtonClick(page)
+                    // <a key={page} href="javascript:void(0)" onClick={ (event) => {
+                    <a key={page} href="http://www.sogou.com" onClick={ (event) => {
+                        let e =event;
+                        e.preventDefault();
+                        this.handlePgButtonClick(page);
+                    }
                     }>{page}</a>
                 )
             }
@@ -149,11 +153,11 @@ export default class Table extends React.Component {
                         </thead>
                         <tbody>{this.state.currMembers
                             .map((user) =>
-                                <tr key={user.id}>
-                                    <td>{user.id}</td>
-                                    <td>{user.fname}</td>
-                                    <td>{user.lname}</td>
-                                </tr>
+                                    <tr key={user.id}>
+                                        <td>{user.id}</td>
+                                        <td>{user.fname}</td>
+                                        <td>{user.lname}</td>
+                                    </tr>
                             )}
                         </tbody>
                     </table>
