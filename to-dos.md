@@ -15,3 +15,10 @@ The current issue: Webpack can start, but not serving anything from the public d
 - Add header and footer
 
 - Add styling to the table with Bootstrap
+
++++ 200822
+
+- Add a nav bar to the page, also a new tab "About"
+- Add footer
+- Pagination: Display the first and last two pages, rest with ...
+- Dynamic table schema (Research about how to achieve, maybe difficult...) 
