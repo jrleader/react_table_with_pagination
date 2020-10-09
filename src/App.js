@@ -38,26 +38,19 @@ class App extends Component {
         // };
 
         const divStyle = {
-
-        }
-
-        const table = () => {
-            return (
-                <Table data-url={USERS_URL}/>
-            )
+            marginBottom: 5 + "px"
         }
 
         return (
             // <div class="box" style={divStyle}>
             <div>
                 <Router history={hashHistory}>
-                <nav>
+                <nav style={divStyle}>
                     <Link to="/table">Table</Link>
                     <Link to="/about">About</Link>
                 </nav>
-                <div>
-                    {/* Data loaded however no content is shown in the table, why? */}
-                    <Route path="/table" component={() => (<Table data-url={USERS_URL}/>)}/> 
+                <div class="box">
+                    <Route path="/table" component={() => (<Table data-url={USERS_URL} items-per-page={3}/>)}/> 
                     {/* <Route path="/table" render={(USERS_URL) => (<Table data-url={USERS_URL}/)}/> */}
                     <Route path="/about" component={AboutPage}/>
                 </div>

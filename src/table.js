@@ -5,7 +5,7 @@ export default class Table extends React.Component {
 
     constructor(props) {
         super(props);
-        const ITEMS_PER_PAGE = this.props['itemsPerPage'];
+        const ITEMS_PER_PAGE = this.props['items-per-page'];
         this.state = {
             members: [], // The members to display in the table
             currMembers: [], // The members showing on the current page
