@@ -24,6 +24,7 @@ module.exports = {
     publicPath: "../dist/",
     filename: "bundle.js"
   },
+  devtool: '#sourcemap',
   devServer: { // set up webpack-dev-server
     contentBase: path.join(__dirname, "public/"),
     port: 3000,
