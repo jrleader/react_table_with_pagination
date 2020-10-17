@@ -2,9 +2,9 @@ import Table from "./table.js"
 import React, { Component } from "react"
 import TopMenu from "./topmenu.js"
 // import ReactRouter from "react-router"
-import CommonContent from "./commonLayout"
+// import CommonContent from "./commonLayout"
 import AboutPage from "./aboutPage"
-import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link} from "react-router-dom"
+import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link, Redirect} from "react-router-dom"
 
 // let ReactRouter = require('react-router-dom')
 // let {Route, Link, BrowserRouter} = ReactRouter
@@ -35,21 +35,26 @@ class App extends Component {
     }
 
     // Need to update the function to resolve any syntax errors
-    handleclick(element) {
+    handleclick(event) {
         let childMenuItems = document.querySelector("nav")
+        console.log(childMenuItems)
         // Remove any existing active item first
-        for(child of childMenuItems.children) {
-            if(child.className.contains("active")) {
+        for(let child of childMenuItems.children) {
+            if(child.className.indexOf("active",0) !== -1) {
                 let newClassName = child.className
                 newClassName = newClassName.replace("active","")
-                child.className = newClassName 
+                child.className = newClassName
             }
         }
+        let selectedElem = event.target
+        console.log(selectedElem)
         // Mark the item clicked as "active"
-        if(!element.className.contains("active")) {
-            element.className = element.className + " active"
+        if(selectedElem.className.indexOf("active",0) === -1) {
+            selectedElem.className = selectedElem.className.trim() + " active"
         }
     }
+
+    // handleclick(element) {}
 
 
     render() {
@@ -65,18 +70,25 @@ class App extends Component {
 
         return (
             // <div class="box" style={divStyle}>
+            // How to let the router render the home component by default? Yet did not make the component available across all components?
             <div>
-                <HashRouter basename="/home" hashType="noslash">
+                <HashRouter basename="/" hashType="noslash">
                 <nav style={divStyle} class="ui inverted menu">
-                    <Link class="red active item" to="/table" onClick={(elem) => this.handleclick(elem)}>Table</Link>
-                    <Link class="teal item" to="/about" onClick={(elem) => this.handleclick(elem)}>About</Link>
+                    <Link class="red active item" to="/home" onClick={(ev) => this.handleclick(ev)}>Home</Link>
+                    <Link class="green item" to="/table" onClick={(ev) => this.handleclick(ev)}>Table</Link>
+                    <Link class="teal item" to="/about" onClick={(ev) => this.handleclick(ev)}>About</Link>
                 </nav>
                 <div class="box">
-                    <Route path="/table" component={() => (<Table data-url={USERS_URL} items-per-page={3}/>)}/> 
+                    <Route path="/">
+                        <Redirect to="/home"/>
+                    </Route>
+                    <Route path="/home" component={() => {return <p>Welcome to the home page!</p>}}/>
+                    <Route path="/table" component={() => (<Table data-url={USERS_URL} items-per-page={5}/>)}/> 
                     {/* <Route path="/table" render={(USERS_URL) => (<Table data-url={USERS_URL}/)}/> */}
                     <Route path="/about" component={AboutPage}/>
                 </div>
                 </HashRouter>
+                <Footer/>
             </div>
 
             // <Router history={hashHistory}>
@@ -93,6 +105,31 @@ class App extends Component {
             // </div>
         );
     }
+}
+
+function Footer(props) {
+    let content = "Copyright 2020 Xiaoming Li, All Rights Reserved."
+    let style = {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '100px',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'black',
+        color: 'white'
+    }
+    // let footerStyle= {
+    //     color: 'white'
+    // }
+
+    return (
+        <div style={style}>
+            <footer>{content}</footer>
+        </div>
+    )
 }
 
 export default App;
