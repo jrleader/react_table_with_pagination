@@ -60,3 +60,13 @@ a {
 img #logo {
     margin: 2rem !important;
 }
+
+nav a {
+    transition: background 0.5s !important;
+}
+
+nav a:hover {
+    background: orange !important;
+}
+
+/* nav :nth-child(2) {} */
