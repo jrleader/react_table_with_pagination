@@ -13,13 +13,28 @@ export default class Table extends React.Component {
             minPage: 1,
             itemsPerPage: ITEMS_PER_PAGE,
             maxPage: 1,
-            pages: []
+            pages: [],
+            headers: [],
         }
         this.handleFButtonClick = this.handleFirstButtonClick.bind(this); // Use the function as an instance method rather than a class method
         this.handleLuttionClick = this.handleLastButtionClick.bind(this); // Use the function as an instance method rather than a class method
         this.handleNButtonClick = this.handleNextButtonClick.bind(this); // Use the function as an instance method rather than a class method
         this.handlePButtonClick = this.handlePrevButtonClick.bind(this); // Use the function as an instance method rather than a class method
         this.handlePgButtonClick = this.handlePageButtonClick.bind(this);
+        this.setTableHeader = this.setTableHeader.bind(this);
+        this.setTableValues = this.setTableValues.bind(this);
+         // // For testing REST operator
+        // this.setState(
+        //     {
+        //         members: [
+        //             {
+        //                 'id':'',
+        //                 'fname':'',
+        //                 'lname':''
+        //             }
+        //         ]
+        //     }
+        // )
     }
 
     fetchMembers() {
@@ -36,13 +51,17 @@ export default class Table extends React.Component {
             .then(() => {
                 this.setState({
                     currMembers: this.state.members.slice(this.state.currentPage * this.state.itemsPerPage - this.state.itemsPerPage, this.state.currentPage * this.state.itemsPerPage),
-                    pages: range(this.state.minPage, this.state.maxPage)
+                    pages: range(this.state.minPage, this.state.maxPage),
                 },
                     console.log(this.state.maxPage))
                 // console.log("Current members:" + JSON.stringify(this.state.currMembers))
             }
-            ).then(() =>
+            ).then(() => {
+                this.setState({
+                    headers: this.setTableHeader(...this.state.currMembers)
+                })
                 console.log(this.state)
+            }
             )
         // for (const key in this.state) {
         //     console.log(key)
@@ -125,6 +144,37 @@ export default class Table extends React.Component {
         console.log("link clicked!")
     }
 
+    setTableHeader(...objs) {
+        let headers = []
+        // let props = Object.keys({
+        //     'id':'',
+        //     'fname':'',
+        //     'lname':''
+        // })
+        let props = Object.keys(objs.slice(0,1)[0])
+        for(let prop of [...props]) {
+            headers.push(prop)
+        }
+        // for(let header of headers) {
+        //     console.log('header: ' + header)
+        // }
+        return headers.map((header) => {
+            return <th key={header}>{header}</th>
+        })
+    }
+
+    setTableValues(obj) {
+        console.log('Setting table values...')
+        let values = []
+        let propVals = Object.values(obj)
+        for(let propVal of propVals) {
+            values.push(propVal)
+        }
+        return values.map((val) => {
+            return <td key={val}>{val}</td>
+        })
+    }
+
     render() {
         const pages = this.state.pages.map(
             page => {
@@ -140,6 +190,7 @@ export default class Table extends React.Component {
             }
         )
         console.log(pages)
+        let headers = this.state.headers
         return (
             <div>
                 <section className="memberInfo">
@@ -157,20 +208,61 @@ export default class Table extends React.Component {
                                         // }
                                     )
                                 } */}
-                                <th>ID</th>
+                                {/* <th>ID</th>
                                 <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Last Name</th> */}
+                                {
+                                    // this.state.members.map(
+                                    //     (...props) => {
+                                    //         for(let prop in props) {
+                                    //             return <th key={prop}>{prop}</th>
+                                    //         }
+                                    //     }
+                                    // )
+                                    // () => {
+                                    //     let memberExample = this.state.members[0]
+                                    //     for(let prop in memberExample) {
+                                    //         return <th>{prop}</th>
+                                    //     }
+                                    // }
+                                    // () => { // Try to extract the props from json and list them in the table header
+                                    //     let headers = []
+                                    //     let props = Object.keys(this.state.members[0])
+                                    //     for(prop of [...props]) {
+                                    //         headers.push(prop)
+                                    //     }
+                                    //     for(header of headers) {
+                                    //         console.log('header: ' + header)
+                                    //     }
+                                    //     return headers.map((header) => {
+                                    //         return <th key={header}>{header}</th>
+                                    //     })
+                                    // }
+                                    // Function.apply(() => {
+                                    //     while(!this.state.currMembers[0]) {}
+                                    //     this.setTableHeader()
+                                    // }, this, null)
+                                    headers
+                                }
                             </tr>
                         </thead>
                         <tbody>
                         {   
                             this.state.currMembers.map(
                                 (user) => 
-                                    <tr key={user.id}>
-                                        <td>{user.id}</td>
-                                        <td>{user.fname}</td>
-                                        <td>{user.lname}</td>
-                                    </tr>
+                                    // <tr key={user.id}>
+                                    //     <td>{user.id}</td>
+                                    //     <td>{user.fname}</td>
+                                    //     <td>{user.lname}</td>
+                                    // </tr>
+                                    {
+                                        return <tr key={Object.values(user).slice(0,1)[0]}>
+                                            {/* {Object.values(user).map((val) => {
+                                                <td>{val}</td>
+                                            })} */}
+                                            {this.setTableValues(user)}
+                                        </tr>
+                                    }
                             )
                         }
                         </tbody>
