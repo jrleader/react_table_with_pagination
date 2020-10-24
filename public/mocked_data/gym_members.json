@@ -3,52 +3,62 @@
         {
             "id": 1,
             "fname": "Xiaoming",
-            "lname": "Li"
+            "lname": "Li",
+            "pos": "Dev"
         },
         {
             "id": 2,
             "fname": "Figo",
-            "lname": "Zhao"
+            "lname": "Zhao",
+            "pos": "Dev"
         },
         {
             "id": 3,
             "fname": "Zhe",
-            "lname": "Wang"
+            "lname": "Wang",
+            "pos": "Dev"
         },
         {
             "id": 4,
             "fname": "Yulia",
-            "lname": "Fei"
+            "lname": "Fei",
+            "pos": "Dev"
         },
         {
             "id": 5,
             "fname": "Jackie",
-            "lname": "Huang"
+            "lname": "Huang",
+            "pos": "Dev"
         },
         {
             "id": 6,
             "fname": "Marvin",
-            "lname": "Zhang"
+            "lname": "Zhang",
+            "pos": "Dev"
         },
         {
             "id": 7,
             "fname": "Bob",
-            "lname": "Dylan"
+            "lname": "Dylan",
+            "pos": "Dev"
         },
         {
             "id": 8,
             "fname": "Paul",
-            "lname": "Ramstead"
+            "lname": "Ramstead",
+            "pos": "Dev"
         },
         {
             "id": 9,
             "fname": "John",
-            "lname": "Lennon"
+            "lname": "Lennon",
+            "pos": "Dev"
         },
         {
             "id": 10,
             "fname": "Steven",
-            "lname": "Lee"
+            "lname": "Lee",
+            "pos": "Dev"
         }
     ]
 }
