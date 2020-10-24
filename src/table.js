@@ -228,7 +228,7 @@ export default class Table extends React.Component {
                     <button name="changeTableDisp" type="button" onClick={this.handleTableRowChange}>改变显示行数</button>
                 </section>
                 <section className="memberInfo">
-                    <table>
+                    <table className="ui selectable celled table">
                         <thead>
                             <tr>{/* {
                                     this.state.currMembers
@@ -304,7 +304,7 @@ export default class Table extends React.Component {
                 </section>
                 <section className="pagination">
                     {/* <button className="first-page-btn" onClick={() => this.handleFButtonClick()}  */}
-                    <button className="first-page-btn" onClick={this.handleFButtonClick.bind(this)} 
+                    <button className="first-page-btn ui button" onClick={this.handleFButtonClick.bind(this)} 
                         onMouseOverCapture={ () => { 
                             console.log("Mouse over the first page button on capture")
                             console.dir(event,this).bind(this)
@@ -316,7 +316,7 @@ export default class Table extends React.Component {
                         disabled={
                         this.state.currentPage === this.state.minPage ? true : false
                     }>first</button>
-                    <button className="prev-page-btn" onClick={() => this.handlePButtonClick()} disabled={
+                    <button className="prev-page-btn ui secondary button" onClick={() => this.handlePButtonClick()} disabled={
                         this.state.currentPage === this.state.minPage ? true : false
                     }>previous</button>
                     {/* <div className="pageSelections">
@@ -337,10 +337,10 @@ export default class Table extends React.Component {
                     {/* <a href="about:blank">2</a> */}
                     {/* <a href="about:blank">3</a> */}
                     {pages}
-                    <button className="next-page-btn" onClick={() => this.handleNButtonClick()} disabled={
+                    <button className="next-page-btn ui primary button" onClick={() => this.handleNButtonClick()} disabled={
                         this.state.currentPage === this.state.maxPage ? true : false
                     }>next</button>
-                    <button className="last-page-btn" onClick={() => this.handleLuttionClick()} disabled={
+                    <button className="last-page-btn ui button" onClick={() => this.handleLuttionClick()} disabled={
                         this.state.currentPage === this.state.maxPage ? true : false
                     }>last</button>
                 </section>
