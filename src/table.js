@@ -23,6 +23,8 @@ export default class Table extends React.Component {
         this.handlePgButtonClick = this.handlePageButtonClick.bind(this);
         this.setTableHeader = this.setTableHeader.bind(this);
         this.setTableValues = this.setTableValues.bind(this);
+        this.setTableRows = this.setTableRows.bind(this);
+        this.handleTableRowChange = this.handleTableRowChange.bind(this);
          // // For testing REST operator
         // this.setState(
         //     {
@@ -175,6 +177,34 @@ export default class Table extends React.Component {
         })
     }
 
+    // Set the number of table rows to display, as soon as the value changes in the input
+    setTableRows(e) {
+        this.setState(
+            {
+                itemsPerPage: e.target.value
+            }
+        )
+
+    }
+
+    // Change the number of rows displayed in the table by updating the property
+    handleTableRowChange() {
+        // Change the number of rows
+        this.setState(
+            {
+                currentPage: 1,
+                maxPage: Math.ceil(this.state.members.length / this.state.itemsPerPage),
+            }, () => { // Need to set maxPage first then set the list of pages
+                this.setState(
+                    {
+                        pages: range(this.state.minPage, this.state.maxPage),
+                        currMembers: this.state.members.slice(this.state.currentPage * this.state.itemsPerPage - this.state.itemsPerPage, this.state.currentPage * this.state.itemsPerPage),
+                    }
+                )
+            }
+        )
+    }
+
     render() {
         const pages = this.state.pages.map(
             page => {
@@ -193,6 +223,10 @@ export default class Table extends React.Component {
         let headers = this.state.headers
         return (
             <div>
+                <section className="tableRowSetting">
+                    <input type="text" value={this.state.itemsPerPage} onChange={this.setTableRows}></input> 
+                    <button name="changeTableDisp" type="button" onClick={this.handleTableRowChange}>Update</button>
+                </section>
                 <section className="memberInfo">
                     <table>
                         <thead>
