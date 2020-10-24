@@ -69,4 +69,19 @@ nav a:hover {
     background: orange !important;
 }
 
+.tableRowSetting {
+    position: relative;
+    text-align: center;
+    /* top right bottom left */
+    margin: 1em 0 1em 0; 
+}
+
+.tableRowSetting > input {
+    margin-right: 1em;
+}
+
+.tableRowSetting > button {
+    margin-left: 1em;
+}
+
 /* nav :nth-child(2) {} */
