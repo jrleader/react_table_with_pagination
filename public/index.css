@@ -34,17 +34,31 @@ html {
 table th,td {
     margin: 10px;
     padding: 10px;
-    border: 3px solid rgb(75, 0, 130);
+    /* border: 3px solid rgb(75, 0, 130); */
 }
 
-/* table tr {
-    
+table tr>td:hover {
+    background-color: red !important; 
+}
+
+/* table td:hover {
+    background-color: red !important; 
 } */
 
-a {
+.pagination > a {
     display: inline;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.pagination > a:first-of-type {
+    margin-left: 1em;
+}
+
+.pagination > a:last-of-type {
     margin-right: 1em;
 }
+
 
 .pageSelections {
     display: inline-block;
