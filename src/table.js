@@ -15,6 +15,17 @@ export default class Table extends React.Component {
             maxPage: 1,
             pages: [],
             headers: [],
+            pageLinkStyle: {
+                defaultStyle: {
+                    'display': 'inline',
+                    'margin-left': '0.5em',
+                    'margin-right': '0.5em'
+                },
+                selectedStyle: {
+                    'border-bottom': '1pt solid red',
+                    'text-color': 'red'
+                }
+            }
         }
         this.handleFButtonClick = this.handleFirstButtonClick.bind(this); // Use the function as an instance method rather than a class method
         this.handleLuttionClick = this.handleLastButtionClick.bind(this); // Use the function as an instance method rather than a class method
@@ -142,7 +153,7 @@ export default class Table extends React.Component {
         this.setState({
             currentPage: pageSelected,
             currMembers: currPageMembers,
-        })
+        }, () => console.log("Selected page " + this.state.currentPage))
         console.log("link clicked!")
     }
 
@@ -207,15 +218,21 @@ export default class Table extends React.Component {
 
     render() {
         const pages = this.state.pages.map(
-            page => {
+            (page) => {
                 return (
                     // <a key={page} href="javascript:void(0)" onClick={ (event) => {
                     <a key={page} href="http://www.sogou.com" onClick={ (event) => {
                         let e =event;
                         e.preventDefault();
                         this.handlePgButtonClick(page);
+                        // Highlight the current page selected with color red and an underscore
+                        // let selectedPageElem = e.target.value
+                        // selectedPageElem['style'] = {
+                        //     'border-bottom': '1pt solid red',
+                        //     'text-color': 'red'
+                        // }
                     }
-                    }>{page}</a>
+                    }>{page == this.state.currentPage ? <b style={this.state.pageLinkStyle.selectedStyle}>{page}</b> : page }</a>
                 )
             }
         )
