@@ -1,5 +1,5 @@
 html {
-    text-align: center;
+    /* text-align: center; */
     box-sizing: border-box;
 }
 
@@ -8,3 +8,94 @@ html {
     text-align: center;
 } */
 
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+
+/* .table { */
+    /* position: relative; */
+    /* margin-left: 5rem; */
+    /* text-align: center; */
+    /* border: 3px solid indigo; */
+/* } */
+
+.memberInfo > table {
+    position: relative;
+    /* align-items: center */
+    /* For horizontally centering the element */
+    margin: auto;
+    border: 3px solid rgb(75, 0, 130);
+    
+}
+
+table th,td {
+    margin: 10px;
+    padding: 10px;
+    /* border: 3px solid rgb(75, 0, 130); */
+}
+
+table tr>td:hover {
+    background-color: red !important; 
+}
+
+/* table td:hover {
+    background-color: red !important; 
+} */
+
+.pagination > a {
+    display: inline;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.pagination > a:first-of-type {
+    margin-left: 1em;
+}
+
+.pagination > a:last-of-type {
+    margin-right: 1em;
+}
+
+
+.pageSelections {
+    display: inline-block;
+}
+
+.pagination {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-top: 1em;
+}
+
+img #logo {
+    margin: 2rem !important;
+}
+
+nav a {
+    transition: background 0.5s !important;
+}
+
+nav a:hover {
+    background: orange !important;
+}
+
+.tableRowSetting {
+    position: relative;
+    text-align: center;
+    /* top right bottom left */
+    margin: 1em 0 1em 0; 
+}
+
+.tableRowSetting > input {
+    margin-right: 1em;
+}
+
+.tableRowSetting > button {
+    margin-left: 1em;
+}
+
+/* nav :nth-child(2) {} */
