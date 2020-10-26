@@ -55,22 +55,22 @@ export default class Table extends React.Component {
             .then((response) => response.json())
             .then((json) => {
                 this.setState({
-                    members: json.members,
-                    maxPage: Math.ceil(json.members.length / this.state.itemsPerPage),
+                    members: Object.values(json)[0],
                 }
                 )
                 console.log(JSON.stringify(this.state.members))
             })
             .then(() => {
                 this.setState({
+                    maxPage: Math.ceil(this.state.members.length / this.state.itemsPerPage),
                     currMembers: this.state.members.slice(this.state.currentPage * this.state.itemsPerPage - this.state.itemsPerPage, this.state.currentPage * this.state.itemsPerPage),
-                    pages: range(this.state.minPage, this.state.maxPage),
                 },
                     console.log(this.state.maxPage))
                 // console.log("Current members:" + JSON.stringify(this.state.currMembers))
             }
             ).then(() => {
                 this.setState({
+                    pages: range(this.state.minPage, this.state.maxPage),
                     headers: this.setTableHeader(...this.state.currMembers)
                 })
                 console.log(this.state)
