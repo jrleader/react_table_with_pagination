@@ -242,7 +242,7 @@ export default class Table extends React.Component {
             <div>
                 <section className="tableRowSetting">
                     <input type="text" value={this.state.itemsPerPage} onChange={this.setTableRows}></input> 
-                    <button name="changeTableDisp" type="button" onClick={this.handleTableRowChange}>改变显示行数</button>
+                    <button name="changeTableDisp" type="button" onClick={this.handleTableRowChange}>Change the number of rows per page</button>
                 </section>
                 <section className="memberInfo">
                     <table className="ui selectable celled table">
