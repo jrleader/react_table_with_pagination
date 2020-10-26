@@ -83,7 +83,14 @@ class App extends Component {
                         <Redirect to="/home"/>
                     </Route>
                     <Route path="/home" component={() => {return <p>Welcome to the home page!</p>}}/>
-                    <Route path="/table" component={() => (<Table data-url={USERS_URL} items-per-page={5}/>)}/> 
+                    <Route path="/table" component={() => {
+                        return (
+                            <div>
+                                <h1>List of gym members</h1>
+                                <Table data-url={USERS_URL} items-per-page={5}/>
+                            </div>
+                        )
+                    }} />
                     {/* <Route path="/table" render={(USERS_URL) => (<Table data-url={USERS_URL}/)}/> */}
                     <Route path="/about" component={AboutPage}/>
                 </div>
