@@ -24,8 +24,10 @@ import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link, Redirect}
 
 // let hashHistory = history.createHashHistory()
 
-const USERS_URL = "../mocked_data/gym_members.json"
+// const USERS_URL = "../mocked_data/gym_members.json"
 // const USERS_URL = "D:\\lixia\\GitHubProjects\\react_table_with_pagination\\public\\mocked_data\\gym_members.json"
+
+const USERS_URL = "http://localhost:8080/members"
 
 class App extends Component {
 
@@ -73,12 +75,12 @@ class App extends Component {
             // How to let the router render the home component by default? Yet did not make the component available across all components?
             <div>
                 <HashRouter basename="/" hashType="noslash">
-                <nav style={divStyle} class="ui inverted menu">
-                    <Link class="red active item" to="/home" onClick={(ev) => this.handleclick(ev)}>Home</Link>
-                    <Link class="green item" to="/table" onClick={(ev) => this.handleclick(ev)}>Table</Link>
-                    <Link class="teal item" to="/about" onClick={(ev) => this.handleclick(ev)}>About</Link>
+                <nav style={divStyle} className="ui inverted menu">
+                    <Link className="red active item" to="/home" onClick={(ev) => this.handleclick(ev)}>Home</Link>
+                    <Link className="green item" to="/table" onClick={(ev) => this.handleclick(ev)}>Table</Link>
+                    <Link className="teal item" to="/about" onClick={(ev) => this.handleclick(ev)}>About</Link>
                 </nav>
-                <div class="box">
+                <div className="box">
                     <Route path="/">
                         <Redirect to="/home"/>
                     </Route>
