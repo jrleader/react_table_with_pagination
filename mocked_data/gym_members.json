@@ -1,0 +1,34 @@
+{
+    "members": [
+        {
+            "id": 1,
+            "fname": "Xiaoming",
+            "lname": "Li"
+        },
+        {
+            "id": 2,
+            "fname": "Figo",
+            "lname": "Zhao"
+        },
+        {
+            "id": 3,
+            "fname": "Zhe",
+            "lname": "Wang"
+        },
+        {
+            "id": 4,
+            "fname": "Yulia",
+            "lname": "Fei"
+        },
+        {
+            "id": 5,
+            "fname": "Jackie",
+            "lname": "Huang"
+        },
+        {
+            "id": 6,
+            "fname": "Marvin",
+            "lname": "Zhang"
+        }
+    ]
+}

@@ -1,31 +1,8 @@
 import Table from "./table.js"
 import React, { Component } from "react"
 import TopMenu from "./topmenu.js"
-// import ReactRouter from "react-router"
-// import CommonContent from "./commonLayout"
 import AboutPage from "./aboutPage"
 import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link, Redirect} from "react-router-dom"
-
-// let ReactRouter = require('react-router-dom')
-// let {Route, Link, BrowserRouter} = ReactRouter
-// let Router = BrowserRouter
-// const {hashHistory} = ReactRouter
-
-// let ReactRouter = require('react-router')
-// let {Router, Route} = ReactRouter
-
-// const history = require('history')
-
-// let hashHistory = ReactRouter.useHistory(history.createHashHistory) (
-//     {
-//         queryKey: false
-//     }
-// )
-
-// let hashHistory = history.createHashHistory()
-
-// const USERS_URL = "../mocked_data/gym_members.json"
-// const USERS_URL = "D:\\lixia\\GitHubProjects\\react_table_with_pagination\\public\\mocked_data\\gym_members.json"
 
 const config = require("./config")
 
@@ -58,23 +35,12 @@ class App extends Component {
         }
     }
 
-    // handleclick(element) {}
-
-
     render() {
-        // const divStyle = {
-        //     display: flex,
-        //     alignItems: center,
-        //     justifyContent: center
-        // };
-
         const divStyle = {
             marginBottom: 5 + "px"
         }
 
         return (
-            // <div class="box" style={divStyle}>
-            // How to let the router render the home component by default? Yet did not make the component available across all components?
             <div>
                 <HashRouter basename="/" hashType="noslash">
                 <nav style={divStyle} className="ui inverted menu">
@@ -96,24 +62,12 @@ class App extends Component {
                         )
                     }} />
                     {/* <Route path="/table" render={(USERS_URL) => (<Table data-url={USERS_URL}/)}/> */}
+
                     <Route path="/about" component={AboutPage}/>
                 </div>
                 </HashRouter>
                 <Footer/>
             </div>
-
-            // <Router history={hashHistory}>
-            //     <Route path="/">
-            //         <Route path="/table" component={Table}/>
-            //         <Route path="/about" component={AboutPage}/>
-            //     </Route>
-            // </Router>
-            // <div>
-            //     <TopMenu/>
-            //     <div class="box">
-            //         <Table data-url={USERS_URL} itemsPerPage={5} />
-            //     </div>
-            // </div>
         );
     }
 }
@@ -132,9 +86,6 @@ function Footer(props) {
         backgroundColor: 'black',
         color: 'white'
     }
-    // let footerStyle= {
-    //     color: 'white'
-    // }
 
     return (
         <div style={style}>
