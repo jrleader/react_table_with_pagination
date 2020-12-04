@@ -4,7 +4,9 @@ import TopMenu from "./topmenu.js"
 import AboutPage from "./aboutPage"
 import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link, Redirect} from "react-router-dom"
 
-const USERS_URL = "../mocked_data/gym_members.json"
+const config = require("./config")
+
+const USERS_URL = config.MODE == 'local' ? config.USERS_URL : config.SERVICE_URL
 
 class App extends Component {
 
@@ -41,17 +43,26 @@ class App extends Component {
         return (
             <div>
                 <HashRouter basename="/" hashType="noslash">
-                <nav style={divStyle} class="ui inverted menu">
-                    <Link class="red active item" to="/home" onClick={(ev) => this.handleclick(ev)}>Home</Link>
-                    <Link class="green item" to="/table" onClick={(ev) => this.handleclick(ev)}>Table</Link>
-                    <Link class="teal item" to="/about" onClick={(ev) => this.handleclick(ev)}>About</Link>
+                <nav style={divStyle} className="ui inverted menu">
+                    <Link className="red active item" to="/home" onClick={(ev) => this.handleclick(ev)}>Home</Link>
+                    <Link className="green item" to="/table" onClick={(ev) => this.handleclick(ev)}>Table</Link>
+                    <Link className="teal item" to="/about" onClick={(ev) => this.handleclick(ev)}>About</Link>
                 </nav>
-                <div class="box">
+                <div className="box">
                     <Route path="/">
                         <Redirect to="/home"/>
                     </Route>
                     <Route path="/home" component={() => {return <p>Welcome to the home page!</p>}}/>
-                    <Route path="/table" component={() => (<Table data-url={USERS_URL} items-per-page={5}/>)}/> 
+                    <Route path="/table" component={() => {
+                        return (
+                            <div>
+                                <h1>List of gym members</h1>
+                                <Table data-url={USERS_URL} items-per-page={5}/>
+                            </div>
+                        )
+                    }} />
+                    {/* <Route path="/table" render={(USERS_URL) => (<Table data-url={USERS_URL}/)}/> */}
+
                     <Route path="/about" component={AboutPage}/>
                 </div>
                 </HashRouter>

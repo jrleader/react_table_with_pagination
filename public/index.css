@@ -22,6 +22,12 @@ html {
     /* border: 3px solid indigo; */
 /* } */
 
+.box div > h1 {
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
 .memberInfo > table {
     position: relative;
     /* align-items: center */

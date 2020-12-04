@@ -9,7 +9,7 @@ export default class aboutPage extends Component {
         return (
             <div>
                 <p>This is a demo application for the react table component with pagination<br>
-                </br>Idea was drawn from a question from Nomura's UI developer online interview</p>
+                </br>Idea was drawn from a question from a set of UI developer online interview questions</p>
             </div>
         )
     }

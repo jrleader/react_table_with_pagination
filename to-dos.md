@@ -15,12 +15,11 @@ The current issue: Webpack can start, but not serving anything from the public d
 - Dynamic table schema (Research about how to achieve, maybe difficult...) (DONE!!!)
 - Highlight current page number (Done)
 
-- Implement backend data api
+- Implement backend data api (Done)
 
 - Add animations for page transition
 
-- Add styling to the table with Bootstrap
-
+- Add styling to the table with Bootstrap (Done)
 
 
 - Pagination: Display the first and last two pages, rest with ...
@@ -28,3 +27,13 @@ The current issue: Webpack can start, but not serving anything from the public d
 
 
 - Implement input validation, only numbers from 1 to total no. of rows are allowed
+
+- Document what the data should look like
+
+- Experience with nested routing
+
+- Nested cells in the table
+
+- Hierarchical navigation
+
+- Data Visualisation, interactive charts around the table
