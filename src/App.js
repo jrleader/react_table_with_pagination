@@ -27,7 +27,9 @@ import {HashRouter as HashRouter, BrowserRouter as Router, Route,Link, Redirect}
 // const USERS_URL = "../mocked_data/gym_members.json"
 // const USERS_URL = "D:\\lixia\\GitHubProjects\\react_table_with_pagination\\public\\mocked_data\\gym_members.json"
 
-const USERS_URL = "http://localhost:8080/members"
+const config = require("./config")
+
+const USERS_URL = config.MODE == 'local' ? config.USERS_URL : config.SERVICE_URL
 
 class App extends Component {
 
